@@ -1,0 +1,710 @@
+openapi: 3.0.0
+info:
+  title: NCASA
+  description: NCASA
+  version: '1.0'
+  x-logo:
+    url: https://github.com/joolfe/logoBanner.png
+    backgroundColor: '#FFFFFF'
+    altText: logo
+  termsOfService: '#'
+  contact:
+    name: Scodus
+    url: https://scodus.com
+    email: scodusnp@gmail.com
+  license:
+    name: MIT
+    url: https://es.wikipedia.org/wiki/Licencia_MIT
+servers:
+  - url: http://{{url}}
+  - url: http://127.0.0.1:8000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: user
+  - name: user > membership-detail
+  - name: user > user-member
+  - name: company
+  - name: banner
+  - name: job
+  - name: event
+  - name: learning-center
+  - name: settings
+  - name: home
+  - name: blog and news
+  - name: magazine and publication
+  - name: album and gallery
+  - name: newsletter
+  - name: contact-us
+  - name: complain-section
+paths:
+  /membership-detail:
+    get:
+      tags:
+        - user > membership-detail
+      summary: membership-detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /membership-detail/1:
+    get:
+      tags:
+        - user > membership-detail
+      summary: membership-detail-single
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /member/user/register:
+    post:
+      tags:
+        - user > user-member
+      summary: register
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                member_name:
+                  type: string
+                  example: tomnjerry
+                phone:
+                  type: integer
+                  example: '987654321'
+                member_email:
+                  type: string
+                  example: tomnjerry@gmail.com
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+                designation:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+                description:
+                  type: string
+                facebook:
+                  type: string
+                  example: qwertyu
+                instagram:
+                  type: string
+                  example: sdfghjk
+                twitter:
+                  type: string
+                  example: jerhwiurhiew
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /account-verification:
+    post:
+      tags:
+        - user > user-member
+      summary: accountVerification another method
+      requestBody:
+        content: {}
+      parameters:
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '35'
+        - name: token
+          in: query
+          schema:
+            type: string
+          example: 7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /student/resend-account-verification-mail:
+    post:
+      tags:
+        - user > user-member
+      summary: resend email verification mail
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /login:
+    post:
+      tags:
+        - user
+      summary: login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: test1@test.com
+                password:
+                  type: integer
+                  example: '1234'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /logout:
+    post:
+      tags:
+        - user
+      summary: logout
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /refresh-token/{refresh_token}:
+    post:
+      tags:
+        - user
+      summary: refresh-token
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: refresh_token
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{refresh_token}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /profile:
+    get:
+      tags:
+        - user
+      summary: my-profile
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /profile/password-change/update:
+    post:
+      tags:
+        - user
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: integer
+                  example: '12345'
+                new_password:
+                  type: integer
+                  example: '1234'
+                new_password_confirmation:
+                  type: integer
+                  example: '1234'
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /reset-password-mail:
+    post:
+      tags:
+        - user
+      summary: send reset password mail
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user1@user.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /reset-password:
+    post:
+      tags:
+        - user
+      summary: reset password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: integer
+                  example: '12345'
+                password_confirmation:
+                  type: integer
+                  example: '12345'
+                token:
+                  type: string
+                  example: >-
+                    kjF4GBMpxhu7UNmE0N2X7BvBjQW7K3tgsBxkJXobawYrV3azSVGBPWn6QapnieiH
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /company:
+    get:
+      tags:
+        - company
+      summary: company
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /company/1:
+    get:
+      tags:
+        - company
+      summary: company-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /banner:
+    get:
+      tags:
+        - banner
+      summary: banner
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /banner/1:
+    get:
+      tags:
+        - banner
+      summary: banner-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /job:
+    get:
+      tags:
+        - job
+      summary: job
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /job/1/single:
+    get:
+      tags:
+        - job
+      summary: job-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /job/et-ut-et-consequatur:
+    get:
+      tags:
+        - job
+      summary: job-single-by-slug
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /job-apply:
+    post:
+      tags:
+        - job
+      summary: job-apply
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ABC
+                address:
+                  type: string
+                  example: 'qwertyuiosdfghjkcvbn f sdf sd fdds '
+                cv:
+                  type: string
+                  format: binary
+                email:
+                  type: string
+                  example: abc@gmail.com
+                phone:
+                  type: integer
+                  example: '9876543210'
+                job_id:
+                  type: integer
+                  example: '1'
+                status:
+                  type: string
+                  example: Active
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event:
+    get:
+      tags:
+        - event
+      summary: event
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event/2/single:
+    get:
+      tags:
+        - event
+      summary: event-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event/magni-est-accusanti:
+    get:
+      tags:
+        - event
+      summary: event-single-by-slug
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event-apply:
+    post:
+      tags:
+        - event
+      summary: event-apply
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: eABC
+                email:
+                  type: string
+                  example: eabc@gmail.com
+                phone:
+                  type: integer
+                  example: '9876543210'
+                event_id:
+                  type: integer
+                  example: '1'
+                status:
+                  type: string
+                  example: Active
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course:
+    get:
+      tags:
+        - learning-center
+      summary: course
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course/1:
+    get:
+      tags:
+        - learning-center
+      summary: course-single
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course-note:
+    get:
+      tags:
+        - learning-center
+      summary: course-note
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course-note/1:
+    get:
+      tags:
+        - learning-center
+      summary: course-note-single
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-setting:
+    get:
+      tags:
+        - settings
+      summary: site-settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /home:
+    get:
+      tags:
+        - home
+      summary: home
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /blog:
+    get:
+      tags:
+        - blog and news
+      summary: blog
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /blog/5:
+    get:
+      tags:
+        - blog and news
+      summary: blog-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /news:
+    get:
+      tags:
+        - blog and news
+      summary: news
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /news/7:
+    get:
+      tags:
+        - blog and news
+      summary: news-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /magazine:
+    get:
+      tags:
+        - magazine and publication
+      summary: magazine
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /magazine/6:
+    get:
+      tags:
+        - magazine and publication
+      summary: magazine-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /album:
+    get:
+      tags:
+        - album and gallery
+      summary: album
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /album/1:
+    get:
+      tags:
+        - album and gallery
+      summary: album-single
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /album/1/with-gallery:
+    get:
+      tags:
+        - album and gallery
+      summary: album-single-with-gallery
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /album/1/gallery:
+    get:
+      tags:
+        - album and gallery
+      summary: albumGallery
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /newsletter:
+    post:
+      tags:
+        - newsletter
+      summary: newsletter
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: newsletter@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /contact-us:
+    post:
+      tags:
+        - contact-us
+      summary: contact-us
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Contact Us 1
+                subject:
+                  type: string
+                  example: subject 1
+                message:
+                  type: string
+                  example: message 1ds,,fnsdfsdnf asdf  ds afd ds fs dsa
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /complain:
+    post:
+      tags:
+        - complain-section
+      summary: complain
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ABC
+                email:
+                  type: string
+                  example: abc@gmail.com
+                message:
+                  type: string
+                  example: wertuioxcvbnm,.xcvbnm,.f fdg f g fd gf df g fd gfd gf
+                to:
+                  type: string
+                  example: ICAN
+                status:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

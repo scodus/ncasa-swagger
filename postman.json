@@ -1,0 +1,1286 @@
+{
+	"info": {
+		"_postman_id": "b37d2b2c-4207-4c57-9e38-8c74222105ab",
+		"name": "audaan-ncasa-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15009917"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "membership-detail",
+					"item": [
+						{
+							"name": "membership-detail",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/membership-detail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"membership-detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "membership-detail-single",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/membership-detail/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"membership-detail",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user-member",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "member_name",
+											"value": "tomnjerry",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "987654321",
+											"type": "text"
+										},
+										{
+											"key": "member_email",
+											"value": "tomnjerry@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "designation",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "facebook",
+											"value": "qwertyu",
+											"type": "text"
+										},
+										{
+											"key": "instagram",
+											"value": "sdfghjk",
+											"type": "text"
+										},
+										{
+											"key": "twitter",
+											"value": "jerhwiurhiew",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/member/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"member",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accountVerification",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "35",
+											"type": "text"
+										},
+										{
+											"key": "token",
+											"value": "7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/account-verification",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"account-verification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accountVerification another method",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/account-verification?user_id=35&token=7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"account-verification"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "35"
+										},
+										{
+											"key": "token",
+											"value": "7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resend email verification mail",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/student/resend-account-verification-mail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"student",
+										"resend-account-verification-mail"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/refresh-token/:refresh_token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh-token",
+								":refresh_token"
+							],
+							"variable": [
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "new_password_confirmation",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/profile/password-change/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profile",
+								"password-change",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send reset password mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user1@user.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/reset-password-mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reset-password-mail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "kjF4GBMpxhu7UNmE0N2X7BvBjQW7K3tgsBxkJXobawYrV3azSVGBPWn6QapnieiH",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/reset-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "banner",
+			"item": [
+				{
+					"name": "banner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/banner",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "banner-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/banner/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "job-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job/1/single",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job",
+								"1",
+								"single"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "job-single-by-slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job/et-ut-et-consequatur",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job",
+								"et-ut-et-consequatur"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "job-apply",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ABC",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "qwertyuiosdfghjkcvbn f sdf sd fdds ",
+									"type": "text"
+								},
+								{
+									"key": "cv",
+									"type": "file",
+									"src": "/C:/Users/August/Downloads/Documents/ME NCIT.pdf"
+								},
+								{
+									"key": "email",
+									"value": "abc@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9876543210",
+									"type": "text"
+								},
+								{
+									"key": "job_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Active",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/job-apply",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job-apply"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/event",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/event/2/single",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event",
+								"2",
+								"single"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event-single-by-slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/event/magni-est-accusanti",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event",
+								"magni-est-accusanti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event-apply",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "eABC",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "eabc@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9876543210",
+									"type": "text"
+								},
+								{
+									"key": "event_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Active",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/event-apply",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event-apply"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "learning-center",
+			"item": [
+				{
+					"name": "course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-single",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course-note",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-note-single",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course-note/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-note",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "settings",
+			"item": [
+				{
+					"name": "site-settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/site-setting",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"site-setting"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home",
+			"item": [
+				{
+					"name": "home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/home",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"home"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "blog and news",
+			"item": [
+				{
+					"name": "blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/blog",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "blog-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/blog/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "news",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "news-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news/7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "magazine and publication",
+			"item": [
+				{
+					"name": "magazine",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/magazine",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"magazine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "magazine-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/magazine/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"magazine",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "album and gallery",
+			"item": [
+				{
+					"name": "album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "album-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "album-single-with-gallery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album/1/with-gallery",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album",
+								"1",
+								"with-gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "albumGallery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album/1/gallery",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album",
+								"1",
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "newsletter",
+			"item": [
+				{
+					"name": "newsletter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "newsletter@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/newsletter",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"newsletter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact-us",
+			"item": [
+				{
+					"name": "contact-us",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Contact Us 1",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "subject 1",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "message 1ds,,fnsdfsdnf asdf  ds afd ds fs dsa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/contact-us",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"contact-us"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "complain-section",
+			"item": [
+				{
+					"name": "complain",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ABC",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "abc@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "wertuioxcvbnm,.xcvbnm,.f fdg f g fd gf df g fd gfd gf",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "ICAN",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/complain",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complain"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
