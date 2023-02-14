@@ -17,6 +17,7 @@ info:
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
   - url: https://ncasa.scodus.com/api
+    description: Base URL
 components:
   securitySchemes:
     bearerAuth:

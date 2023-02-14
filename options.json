@@ -21,7 +21,8 @@
   },
   "servers": [
     {
-      "url": "https://ncasa.scodus.com/api"
+      "url": "https://ncasa.scodus.com/api",
+      "description": "Base URL"
     }
   ]
 }
