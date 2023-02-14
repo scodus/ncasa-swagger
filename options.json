@@ -17,6 +17,7 @@
       "url": "https://github.com/joolfe/logoBanner.png",
       "backgroundColor": "#FFFFFF",
       "altText": "logo"
-    }
+    },
+    "Base URL": "https://ncasa.scodus.com/api"
   }
 }
