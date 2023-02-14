@@ -16,8 +16,7 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: http://{{url}}
-  - url: http://127.0.0.1:8000
+  - url: https://ncasa.scodus.com/api
 components:
   securitySchemes:
     bearerAuth:
