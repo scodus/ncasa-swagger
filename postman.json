@@ -512,12 +512,37 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/company/1",
+							"raw": "{{url}}/company/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"company",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "shay-hopper"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/by/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"by",
 								"1"
 							]
 						}
@@ -587,19 +612,19 @@
 					"response": []
 				},
 				{
-					"name": "job-single",
+					"name": "job-single-by",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/job/1/single",
+							"raw": "{{url}}/job/by/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"job",
-								"1",
-								"single"
+								"by",
+								"1"
 							]
 						}
 					},
@@ -611,13 +636,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/job/et-ut-et-consequatur",
+							"raw": "{{url}}/job/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"job",
-								"et-ut-et-consequatur"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "quas-anim-molestiae"
+								}
 							]
 						}
 					},
@@ -644,7 +675,7 @@
 								{
 									"key": "cv",
 									"type": "file",
-									"src": "/C:/Users/August/Downloads/Documents/ME NCIT.pdf"
+									"src": "/C:/Users/August/Downloads/Documents/NoticeNo-19.pdf"
 								},
 								{
 									"key": "email",
@@ -657,24 +688,39 @@
 									"type": "text"
 								},
 								{
-									"key": "job_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
 									"key": "status",
 									"value": "Active",
 									"type": "text"
+								},
+								{
+									"key": "job_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "job_slug",
+									"value": "",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/job-apply",
+							"raw": "{{url}}/job/:slug/job-apply",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"job",
+								":slug",
 								"job-apply"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "quas-anim-molestiae"
+								}
 							]
 						}
 					},
@@ -708,32 +754,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/event/2/single",
+							"raw": "{{url}}/event/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"event",
-								"2",
-								"single"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "amet-dolores-possim"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "event-single-by-slug",
+					"name": "event-single-by",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/event/magni-est-accusanti",
+							"raw": "{{url}}/event/by/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"event",
-								"magni-est-accusanti"
+								"by",
+								"1"
 							]
 						}
 					},
@@ -775,7 +827,8 @@
 								{
 									"key": "event_id",
 									"value": "1",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "status",
@@ -785,12 +838,20 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/event-apply",
+							"raw": "{{url}}/event/:slug/event-apply",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"event",
+								":slug",
 								"event-apply"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "amet-dolores-possim"
+								}
 							]
 						}
 					},
@@ -989,13 +1050,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/blog/5",
+							"raw": "{{url}}/blog/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"blog",
-								"5"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "et-cupidatat-id-solu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "blog-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/blog/by/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								"by",
+								"1"
 							]
 						}
 					},
@@ -1024,13 +1110,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/news/7",
+							"raw": "{{url}}/news/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"news",
-								"7"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "voluptas-distinctio"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "news-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news/by/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news",
+								"by",
+								"2"
 							]
 						}
 					},
@@ -1064,13 +1175,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/magazine/6",
+							"raw": "{{url}}/magazine/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"magazine",
-								"6"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "elit-totam-numquam"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "magazine-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/magazine/by/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"magazine",
+								"by",
+								"1"
 							]
 						}
 					},
@@ -1099,18 +1235,43 @@
 					"response": []
 				},
 				{
-					"name": "album-single",
+					"name": "album-single-by",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/album/1",
+							"raw": "{{url}}/album/by/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"album",
+								"by",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "album-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "sint-fugit-ut-non-c"
+								}
 							]
 						}
 					},

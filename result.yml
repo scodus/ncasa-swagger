@@ -306,11 +306,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /company/1:
+  /company/{slug}:
     get:
       tags:
         - company
       summary: company-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: shay-hopper
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /company/by/1:
+    get:
+      tags:
+        - company
+      summary: company-single-by
       responses:
         '200':
           description: Successful response
@@ -346,27 +363,34 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /job/1/single:
+  /job/by/1:
     get:
       tags:
         - job
-      summary: job-single
+      summary: job-single-by
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /job/et-ut-et-consequatur:
+  /job/{slug}:
     get:
       tags:
         - job
       summary: job-single-by-slug
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: quas-anim-molestiae
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /job-apply:
+  /job/{slug}/job-apply:
     post:
       tags:
         - job
@@ -392,12 +416,21 @@ paths:
                 phone:
                   type: integer
                   example: '9876543210'
-                job_id:
-                  type: integer
-                  example: '1'
                 status:
                   type: string
                   example: Active
+                job_id:
+                  type: integer
+                  example: '1'
+                job_slug:
+                  type: string
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: quas-anim-molestiae
       responses:
         '200':
           description: Successful response
@@ -413,27 +446,34 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /event/2/single:
+  /event/{slug}:
     get:
       tags:
         - event
       summary: event-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: amet-dolores-possim
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /event/magni-est-accusanti:
+  /event/by/1:
     get:
       tags:
         - event
-      summary: event-single-by-slug
+      summary: event-single-by
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /event-apply:
+  /event/{slug}/event-apply:
     post:
       tags:
         - event
@@ -461,6 +501,13 @@ paths:
                   example: Active
       security:
         - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: amet-dolores-possim
       responses:
         '200':
           description: Successful response
@@ -544,11 +591,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /blog/5:
+  /blog/{slug}:
     get:
       tags:
         - blog and news
       summary: blog-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: et-cupidatat-id-solu
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /blog/by/1:
+    get:
+      tags:
+        - blog and news
+      summary: blog-single-by
       responses:
         '200':
           description: Successful response
@@ -564,11 +628,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /news/7:
+  /news/{slug}:
     get:
       tags:
         - blog and news
       summary: news-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: voluptas-distinctio
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /news/by/2:
+    get:
+      tags:
+        - blog and news
+      summary: news-single-by
       responses:
         '200':
           description: Successful response
@@ -584,11 +665,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /magazine/6:
+  /magazine/{slug}:
     get:
       tags:
         - magazine and publication
       summary: magazine-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: elit-totam-numquam
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /magazine/by/1:
+    get:
+      tags:
+        - magazine and publication
+      summary: magazine-single-by
       responses:
         '200':
           description: Successful response
@@ -604,11 +702,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /album/1:
+  /album/by/1:
+    get:
+      tags:
+        - album and gallery
+      summary: album-single-by
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /album/{slug}:
     get:
       tags:
         - album and gallery
       summary: album-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: sint-fugit-ut-non-c
       responses:
         '200':
           description: Successful response
