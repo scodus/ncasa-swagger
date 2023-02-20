@@ -933,7 +933,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": null
+									"value": "sint-ut-corporis-ear"
 								}
 							]
 						}
@@ -968,7 +968,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": null
+									"value": "1"
 								}
 							]
 						}
@@ -1029,7 +1029,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": null
+									"value": "delectus-incidunt"
 								}
 							]
 						}
@@ -1064,7 +1064,78 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": null
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-coursenotes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course/:slug/coursenotes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								":slug",
+								"coursenotes"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "sint-ut-corporis-ear"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-coursenotes-by",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course/:id/coursenotes/by",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								":id",
+								"coursenotes",
+								"by"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
 								}
 							]
 						}

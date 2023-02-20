@@ -569,6 +569,7 @@ paths:
           schema:
             type: string
           required: true
+          example: sint-ut-corporis-ear
       responses:
         '200':
           description: Successful response
@@ -585,8 +586,9 @@ paths:
         - name: id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -617,6 +619,7 @@ paths:
           schema:
             type: string
           required: true
+          example: delectus-incidunt
       responses:
         '200':
           description: Successful response
@@ -633,8 +636,47 @@ paths:
         - name: id
           in: path
           schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course/{slug}/coursenotes:
+    get:
+      tags:
+        - learning-center
+      summary: course-coursenotes
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
             type: string
           required: true
+          example: sint-ut-corporis-ear
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course/{id}/coursenotes/by:
+    get:
+      tags:
+        - learning-center
+      summary: course-coursenotes-by
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
