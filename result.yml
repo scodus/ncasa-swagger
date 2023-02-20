@@ -23,6 +23,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: user
   - name: user > membership-detail
@@ -323,11 +326,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /company/by/1:
+  /company/by/{id}:
     get:
       tags:
         - company
       summary: company-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -343,11 +353,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /banner/1:
+  /banner/{id}:
     get:
       tags:
         - banner
-      summary: banner-single
+      summary: banner-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -363,21 +380,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /job/by/1:
-    get:
-      tags:
-        - job
-      summary: job-single-by
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /job/{slug}:
     get:
       tags:
         - job
-      summary: job-single-by-slug
+      summary: job-single
       parameters:
         - name: slug
           in: path
@@ -385,6 +392,23 @@ paths:
             type: string
           required: true
           example: quas-anim-molestiae
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /job/by/{id}:
+    get:
+      tags:
+        - job
+      summary: job-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -463,11 +487,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /event/by/1:
+  /event/by/{id}:
     get:
       tags:
         - event
       summary: event-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -500,7 +531,7 @@ paths:
                   type: string
                   example: Active
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: slug
           in: path
@@ -525,13 +556,37 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /course/1:
+  /course/{slug}:
     get:
       tags:
         - learning-center
       summary: course-single
       security:
         - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course/by/{id}:
+    get:
+      tags:
+        - learning-center
+      summary: course-single-by
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -549,13 +604,37 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /course-note/1:
+  /course-note/{slug}:
     get:
       tags:
         - learning-center
       summary: course-note-single
       security:
         - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course-note/by/{id}:
+    get:
+      tags:
+        - learning-center
+      summary: course-note-single-by
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -608,11 +687,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /blog/by/1:
+  /blog/by/{id}:
     get:
       tags:
         - blog and news
       summary: blog-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -645,11 +731,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /news/by/2:
+  /news/by/{id}:
     get:
       tags:
         - blog and news
       summary: news-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -682,11 +775,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /magazine/by/1:
+  /magazine/by/{id}:
     get:
       tags:
         - magazine and publication
       summary: magazine-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -702,11 +802,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /album/by/1:
+  /album/by/{id}:
     get:
       tags:
         - album and gallery
       summary: album-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -729,21 +836,35 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /album/1/with-gallery:
+  /album/{id}/with-gallery:
     get:
       tags:
         - album and gallery
       summary: album-single-with-gallery
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /album/1/gallery:
+  /album/{id}/gallery:
     get:
       tags:
         - album and gallery
       summary: albumGallery
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response

@@ -536,14 +536,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/company/by/1",
+							"raw": "{{url}}/company/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"company",
 								"by",
-								"1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -572,18 +578,24 @@
 					"response": []
 				},
 				{
-					"name": "banner-single",
+					"name": "banner-single-by",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/banner/1",
+							"raw": "{{url}}/banner/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"banner",
-								"1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -612,26 +624,7 @@
 					"response": []
 				},
 				{
-					"name": "job-single-by",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/job/by/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"job",
-								"by",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "job-single-by-slug",
+					"name": "job-single",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -648,6 +641,31 @@
 								{
 									"key": "slug",
 									"value": "quas-anim-molestiae"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "job-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job/by/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job",
+								"by",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
 								}
 							]
 						}
@@ -778,14 +796,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/event/by/1",
+							"raw": "{{url}}/event/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"event",
 								"by",
-								"1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -795,14 +819,7 @@
 					"name": "event-apply",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{user_token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
@@ -905,13 +922,54 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/course/1",
+							"raw": "{{url}}/course/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"course",
-								"1"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-single-by",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course/by/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								"by",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
 							]
 						}
 					},
@@ -960,13 +1018,54 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/course-note/1",
+							"raw": "{{url}}/course-note/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"course-note",
-								"1"
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-note-single-by",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course-note/by/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-note",
+								"by",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
 							]
 						}
 					},
@@ -1074,14 +1173,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/blog/by/1",
+							"raw": "{{url}}/blog/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"blog",
 								"by",
-								"1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -1134,14 +1239,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/news/by/2",
+							"raw": "{{url}}/news/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"news",
 								"by",
-								"2"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -1199,14 +1310,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/magazine/by/1",
+							"raw": "{{url}}/magazine/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"magazine",
 								"by",
-								"1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -1240,14 +1357,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/album/by/1",
+							"raw": "{{url}}/album/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"album",
 								"by",
-								"1"
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -1283,14 +1406,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/album/1/with-gallery",
+							"raw": "{{url}}/album/:id/with-gallery",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"album",
-								"1",
+								":id",
 								"with-gallery"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -1302,14 +1431,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/album/1/gallery",
+							"raw": "{{url}}/album/:id/gallery",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"album",
-								"1",
+								":id",
 								"gallery"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
