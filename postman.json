@@ -10,67 +10,7 @@
 			"name": "user",
 			"item": [
 				{
-					"name": "membership-detail",
-					"item": [
-						{
-							"name": "membership-detail",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{user_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/membership-detail",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"membership-detail"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "membership-detail-single",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{user_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/membership-detail/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"membership-detail",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "user-member",
+					"name": "general-user",
 					"item": [
 						{
 							"name": "register",
@@ -83,17 +23,20 @@
 										{
 											"key": "member_name",
 											"value": "tomnjerry",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "phone",
 											"value": "987654321",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "member_email",
 											"value": "tomnjerry@gmail.com",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "password",
@@ -114,7 +57,8 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": []
+											"src": [],
+											"disabled": true
 										},
 										{
 											"key": "description",
@@ -125,28 +69,41 @@
 										{
 											"key": "facebook",
 											"value": "qwertyu",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "instagram",
 											"value": "sdfghjk",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "twitter",
 											"value": "jerhwiurhiew",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "general1@general.com",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "general1",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/member/user/register",
+									"raw": "{{url}}/user/general/register",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"member",
 										"user",
+										"general",
 										"register"
 									]
 								}
@@ -163,12 +120,12 @@
 									"formdata": [
 										{
 											"key": "user_id",
-											"value": "35",
+											"value": "43",
 											"type": "text"
 										},
 										{
 											"key": "token",
-											"value": "7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj",
+											"value": "cLlAQOof3z6ZN1zRlT9QCG3T7UXJzJW39fZKzCpOWqH2kuYU8R",
 											"type": "text"
 										}
 									]
@@ -256,13 +213,19 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "test1@test.com",
+									"value": "general1@general.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "P@ssw0rd",
 									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -675,6 +638,16 @@
 				{
 					"name": "job-apply",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -693,7 +666,7 @@
 								{
 									"key": "cv",
 									"type": "file",
-									"src": "/C:/Users/August/Downloads/Documents/NoticeNo-19.pdf"
+									"src": "/C:/Users/August/Downloads/audaan.pdf"
 								},
 								{
 									"key": "email",
@@ -819,7 +792,14 @@
 					"name": "event-apply",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [],

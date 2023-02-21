@@ -23,13 +23,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
-    noauthAuth:
-      type: http
-      scheme: noauth
 tags:
   - name: user
-  - name: user > membership-detail
-  - name: user > user-member
+  - name: user > general-user
   - name: company
   - name: banner
   - name: job
@@ -44,34 +40,10 @@ tags:
   - name: contact-us
   - name: complain-section
 paths:
-  /membership-detail:
-    get:
-      tags:
-        - user > membership-detail
-      summary: membership-detail
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /membership-detail/1:
-    get:
-      tags:
-        - user > membership-detail
-      summary: membership-detail-single
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /member/user/register:
+  /user/general/register:
     post:
       tags:
-        - user > user-member
+        - user > general-user
       summary: register
       requestBody:
         content:
@@ -110,6 +82,12 @@ paths:
                 twitter:
                   type: string
                   example: jerhwiurhiew
+                email:
+                  type: string
+                  example: general1@general.com
+                name:
+                  type: string
+                  example: general1
       responses:
         '200':
           description: Successful response
@@ -118,7 +96,7 @@ paths:
   /account-verification:
     post:
       tags:
-        - user > user-member
+        - user > general-user
       summary: accountVerification another method
       requestBody:
         content: {}
@@ -141,7 +119,7 @@ paths:
   /student/resend-account-verification-mail:
     post:
       tags:
-        - user > user-member
+        - user > general-user
       summary: resend email verification mail
       requestBody:
         content:
@@ -168,10 +146,12 @@ paths:
               properties:
                 email:
                   type: string
-                  example: test1@test.com
+                  example: general1@general.com
                 password:
-                  type: integer
-                  example: '1234'
+                  type: string
+                  example: P@ssw0rd
+                '':
+                  type: string
       responses:
         '200':
           description: Successful response
@@ -448,6 +428,8 @@ paths:
                   example: '1'
                 job_slug:
                   type: string
+      security:
+        - bearerAuth: []
       parameters:
         - name: slug
           in: path
@@ -531,7 +513,7 @@ paths:
                   type: string
                   example: Active
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: slug
           in: path
