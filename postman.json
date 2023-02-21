@@ -143,33 +143,6 @@
 							"response": []
 						},
 						{
-							"name": "accountVerification another method",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/account-verification?user_id=35&token=7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"account-verification"
-									],
-									"query": [
-										{
-											"key": "user_id",
-											"value": "35"
-										},
-										{
-											"key": "token",
-											"value": "7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "resend email verification mail",
 							"request": {
 								"auth": {

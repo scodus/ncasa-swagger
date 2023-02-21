@@ -97,20 +97,19 @@ paths:
     post:
       tags:
         - user > general-user
-      summary: accountVerification another method
+      summary: accountVerification
       requestBody:
-        content: {}
-      parameters:
-        - name: user_id
-          in: query
-          schema:
-            type: integer
-          example: '35'
-        - name: token
-          in: query
-          schema:
-            type: string
-          example: 7CClC8PvPE1dvayx2GsfYvuyYDhxO1ZN82IetcocrtZ8w6fKGj
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  example: '43'
+                token:
+                  type: string
+                  example: cLlAQOof3z6ZN1zRlT9QCG3T7UXJzJW39fZKzCpOWqH2kuYU8R
       responses:
         '200':
           description: Successful response
