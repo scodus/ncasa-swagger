@@ -519,18 +519,114 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/banner/:id",
+							"raw": "{{url}}/banner/by/:id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"banner",
+								"by",
 								":id"
 							],
 							"variable": [
 								{
 									"key": "id",
 									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "banner-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/banner/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "veritatis-quia-ut-re"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "about",
+			"item": [
+				{
+					"name": "about",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/about",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"about"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "about-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/about/by/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"about",
+								"by",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "about-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/about/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"about",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "dolor-amet-beatae-s"
 								}
 							]
 						}

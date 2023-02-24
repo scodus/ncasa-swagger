@@ -28,6 +28,7 @@ tags:
   - name: user > general-user
   - name: company
   - name: banner
+  - name: about
   - name: job
   - name: event
   - name: learning-center
@@ -332,7 +333,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /banner/{id}:
+  /banner/by/{id}:
     get:
       tags:
         - banner
@@ -344,6 +345,67 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /banner/{slug}:
+    get:
+      tags:
+        - banner
+      summary: banner-single
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: veritatis-quia-ut-re
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /about:
+    get:
+      tags:
+        - about
+      summary: about
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /about/by/{id}:
+    get:
+      tags:
+        - about
+      summary: about-single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /about/{slug}:
+    get:
+      tags:
+        - about
+      summary: about-single-by
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: dolor-amet-beatae-s
       responses:
         '200':
           description: Successful response
