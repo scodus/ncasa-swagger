@@ -333,23 +333,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /banner/by/{id}:
-    get:
-      tags:
-        - banner
-      summary: banner-single-by
-      parameters:
-        - name: id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /banner/{slug}:
     get:
       tags:
@@ -367,21 +350,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /about:
+  /banner/by/{id}:
     get:
       tags:
-        - about
-      summary: about
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /about/by/{id}:
-    get:
-      tags:
-        - about
-      summary: about-single
+        - banner
+      summary: banner-single-by
       parameters:
         - name: id
           in: path
@@ -394,11 +367,21 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /about:
+    get:
+      tags:
+        - about
+      summary: about
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /about/{slug}:
     get:
       tags:
         - about
-      summary: about-single-by
+      summary: about-single
       parameters:
         - name: slug
           in: path
@@ -406,6 +389,23 @@ paths:
             type: string
           required: true
           example: dolor-amet-beatae-s
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /about/by/{id}:
+    get:
+      tags:
+        - about
+      summary: about-single-by
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response

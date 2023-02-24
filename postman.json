@@ -514,6 +514,30 @@
 					"response": []
 				},
 				{
+					"name": "banner-single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/banner/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"banner",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "veritatis-quia-ut-re"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "banner-single-by",
 					"request": {
 						"method": "GET",
@@ -532,30 +556,6 @@
 								{
 									"key": "id",
 									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "banner-single",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/banner/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"banner",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "veritatis-quia-ut-re"
 								}
 							]
 						}
@@ -590,6 +590,30 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+							"raw": "{{url}}/about/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"about",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "dolor-amet-beatae-s"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "about-single-by",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
 							"raw": "{{url}}/about/by/:id",
 							"host": [
 								"{{url}}"
@@ -603,30 +627,6 @@
 								{
 									"key": "id",
 									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "about-single-by",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/about/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"about",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "dolor-amet-beatae-s"
 								}
 							]
 						}
