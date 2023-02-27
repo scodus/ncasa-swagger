@@ -656,6 +656,29 @@
 					"response": []
 				},
 				{
+					"name": "job paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job?limit=8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "job-single",
 					"request": {
 						"method": "GET",
@@ -803,6 +826,29 @@
 							],
 							"path": [
 								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/event?limit=8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								}
 							]
 						}
 					},
@@ -1264,6 +1310,29 @@
 					"response": []
 				},
 				{
+					"name": "blog paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/blog?limit=8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "blog-single",
 					"request": {
 						"method": "GET",
@@ -1324,6 +1393,29 @@
 							],
 							"path": [
 								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "news paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/news?limit=8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"news"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								}
 							]
 						}
 					},
@@ -1395,6 +1487,29 @@
 							],
 							"path": [
 								"magazine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "magazine paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/magazine?limit=8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"magazine"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								}
 							]
 						}
 					},
@@ -1646,32 +1761,9 @@
 				},
 				{
 					"name": "contact-us",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Contact Us 1",
-									"type": "text"
-								},
-								{
-									"key": "subject",
-									"value": "subject 1",
-									"type": "text"
-								},
-								{
-									"key": "message",
-									"value": "message 1ds,,fnsdfsdnf asdf  ds afd ds fs dsa",
-									"type": "text"
-								}
-							]
-						},
 						"url": {
 							"raw": "{{url}}/contact-us",
 							"host": [

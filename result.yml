@@ -415,7 +415,13 @@ paths:
     get:
       tags:
         - job
-      summary: job
+      summary: job paginated
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
       responses:
         '200':
           description: Successful response
@@ -507,7 +513,13 @@ paths:
     get:
       tags:
         - event
-      summary: event
+      summary: event paginated
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
       responses:
         '200':
           description: Successful response
@@ -749,7 +761,13 @@ paths:
     get:
       tags:
         - blog and news
-      summary: blog
+      summary: blog paginated
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
       responses:
         '200':
           description: Successful response
@@ -793,7 +811,13 @@ paths:
     get:
       tags:
         - blog and news
-      summary: news
+      summary: news paginated
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
       responses:
         '200':
           description: Successful response
@@ -837,7 +861,13 @@ paths:
     get:
       tags:
         - magazine and publication
-      summary: magazine
+      summary: magazine paginated
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '8'
       responses:
         '200':
           description: Successful response
