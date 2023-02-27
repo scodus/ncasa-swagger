@@ -999,6 +999,15 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    get:
+      tags:
+        - contact-us
+      summary: contact-us
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /complain:
     post:
       tags:

@@ -1643,6 +1643,46 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "contact-us",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Contact Us 1",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "subject 1",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "message 1ds,,fnsdfsdnf asdf  ds afd ds fs dsa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/contact-us",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"contact-us"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
