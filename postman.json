@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b37d2b2c-4207-4c57-9e38-8c74222105ab",
+		"_postman_id": "d39417f3-a885-4eea-adfd-3c3d6a0a67ad",
 		"name": "audaan-ncasa-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "15009917"
@@ -131,11 +131,13 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/account-verification",
+									"raw": "{{url}}/user/general/account-verification",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"user",
+										"general",
 										"account-verification"
 									]
 								}
@@ -162,13 +164,282 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/student/resend-account-verification-mail",
+									"raw": "{{url}}/user/general/resend-account-verification-mail",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"student",
+										"user",
+										"general",
 										"resend-account-verification-mail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test1@test.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/general/login?email=test1@test.com&password=1234",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "test1@test.com"
+										},
+										{
+											"key": "password",
+											"value": "1234"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/general/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh-token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/general/refresh-token/:refresh_token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"refresh-token",
+										":refresh_token"
+									],
+									"variable": [
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/general/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "old_password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/general/profile/password-change/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"profile",
+										"password-change",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "send reset password mail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user1@user.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/general/reset-password-mail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"reset-password-mail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "token",
+											"value": "kjF4GBMpxhu7UNmE0N2X7BvBjQW7K3tgsBxkJXobawYrV3azSVGBPWn6QapnieiH",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/general/reset-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"general",
+										"reset-password"
 									]
 								}
 							},
@@ -203,12 +474,22 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/login",
+							"raw": "{{url}}/login?email=test1@test.com&password=1234",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test1@test.com"
+								},
+								{
+									"key": "password",
+									"value": "1234"
+								}
 							]
 						}
 					},
