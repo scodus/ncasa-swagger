@@ -146,10 +146,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: general1@general.com
+                  example: test1@test.com
                 password:
-                  type: string
-                  example: P@ssw0rd
+                  type: integer
+                  example: '1234'
                 '':
                   type: string
       responses:
@@ -411,6 +411,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /job/all:
+    get:
+      tags:
+        - job
+      summary: job
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /job:
     get:
       tags:
@@ -422,6 +432,11 @@ paths:
           schema:
             type: integer
           example: '8'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -509,6 +524,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /event/all:
+    get:
+      tags:
+        - event
+      summary: event
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /event:
     get:
       tags:
@@ -519,7 +544,33 @@ paths:
           in: query
           schema:
             type: integer
-          example: '8'
+          example: '1'
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event/filter/by-dates:
+    get:
+      tags:
+        - event
+      summary: event filter by dates
+      parameters:
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          example: '2023-02-01'
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          example: '2023-02-28'
       responses:
         '200':
           description: Successful response
@@ -757,6 +808,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /blog/all:
+    get:
+      tags:
+        - blog and news
+      summary: blog
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /blog:
     get:
       tags:
@@ -807,6 +868,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /news/all:
+    get:
+      tags:
+        - blog and news
+      summary: news
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /news:
     get:
       tags:
@@ -852,6 +923,16 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /magazine/all:
+    get:
+      tags:
+        - magazine and publication
+      summary: magazine
       responses:
         '200':
           description: Successful response
