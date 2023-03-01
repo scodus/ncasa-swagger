@@ -116,7 +116,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /user/general/resend-account-verification-mail:
+  /resend-account-verification-mail:
     post:
       tags:
         - user > general-user
@@ -128,163 +128,6 @@ paths:
               type: object
       security:
         - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/login:
-    post:
-      tags:
-        - user > general-user
-      summary: login
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: test1@test.com
-                password:
-                  type: integer
-                  example: '1234'
-                '':
-                  type: string
-      parameters:
-        - name: email
-          in: query
-          schema:
-            type: string
-          example: test1@test.com
-        - name: password
-          in: query
-          schema:
-            type: integer
-          example: '1234'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/logout:
-    post:
-      tags:
-        - user > general-user
-      summary: logout
-      requestBody:
-        content: {}
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/refresh-token/{refresh_token}:
-    post:
-      tags:
-        - user > general-user
-      summary: refresh-token
-      requestBody:
-        content: {}
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: refresh_token
-          in: path
-          schema:
-            type: string
-          required: true
-          example: '{{refresh_token}}'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/profile:
-    get:
-      tags:
-        - user > general-user
-      summary: my-profile
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/profile/password-change/update:
-    post:
-      tags:
-        - user > general-user
-      summary: change password
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                old_password:
-                  type: integer
-                  example: '12345'
-                new_password:
-                  type: integer
-                  example: '1234'
-                new_password_confirmation:
-                  type: integer
-                  example: '1234'
-                _method:
-                  type: string
-                  example: PUT
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/reset-password-mail:
-    post:
-      tags:
-        - user > general-user
-      summary: send reset password mail
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: user1@user.com
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/reset-password:
-    post:
-      tags:
-        - user > general-user
-      summary: reset password
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                password:
-                  type: integer
-                  example: '12345'
-                password_confirmation:
-                  type: integer
-                  example: '12345'
-                token:
-                  type: string
-                  example: >-
-                    kjF4GBMpxhu7UNmE0N2X7BvBjQW7K3tgsBxkJXobawYrV3azSVGBPWn6QapnieiH
       responses:
         '200':
           description: Successful response
@@ -303,23 +146,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: test1@test.com
+                  example: general1@general.com
                 password:
-                  type: integer
-                  example: '1234'
-                '':
                   type: string
-      parameters:
-        - name: email
-          in: query
-          schema:
-            type: string
-          example: test1@test.com
-        - name: password
-          in: query
-          schema:
-            type: integer
-          example: '1234'
+                  example: P@ssw0rd
       responses:
         '200':
           description: Successful response
@@ -956,7 +786,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/site-setting:
+  /site-setting:
     get:
       tags:
         - settings
