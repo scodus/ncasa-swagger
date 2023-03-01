@@ -793,23 +793,6 @@
 									"key": "phone",
 									"value": "9876543210",
 									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "Active",
-									"type": "text"
-								},
-								{
-									"key": "job_id",
-									"value": "1",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "job_slug",
-									"value": "",
-									"type": "text",
-									"disabled": true
 								}
 							]
 						},
@@ -992,17 +975,6 @@
 								{
 									"key": "phone",
 									"value": "9876543210",
-									"type": "text"
-								},
-								{
-									"key": "event_id",
-									"value": "1",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "status",
-									"value": "Active",
 									"type": "text"
 								}
 							]

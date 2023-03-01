@@ -500,14 +500,6 @@ paths:
                 phone:
                   type: integer
                   example: '9876543210'
-                status:
-                  type: string
-                  example: Active
-                job_id:
-                  type: integer
-                  example: '1'
-                job_slug:
-                  type: string
       security:
         - bearerAuth: []
       parameters:
@@ -628,12 +620,6 @@ paths:
                 phone:
                   type: integer
                   example: '9876543210'
-                event_id:
-                  type: integer
-                  example: '1'
-                status:
-                  type: string
-                  example: Active
       security:
         - bearerAuth: []
       parameters:
