@@ -188,24 +188,24 @@
 								{
 									"key": "email",
 									"value": "test1@test.com",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "password",
 									"value": "1234",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "email",
 									"value": "general1@general.com",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "password",
 									"value": "P@ssw0rd",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
