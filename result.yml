@@ -514,6 +514,37 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /job/applied-by/user:
+    get:
+      tags:
+        - job
+      summary: job-applied
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /job/applied-by/user/delete/{id}:
+    delete:
+      tags:
+        - job
+      summary: job-applied-delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /event/all:
     get:
       tags:
@@ -629,6 +660,37 @@ paths:
             type: string
           required: true
           example: amet-dolores-possim
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event/applied-by/user:
+    get:
+      tags:
+        - event
+      summary: event-applied
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /event/applied-by/user/delete/{id}:
+    delete:
+      tags:
+        - event
+      summary: event-applied-delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '5'
       responses:
         '200':
           description: Successful response

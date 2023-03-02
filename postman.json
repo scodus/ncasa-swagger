@@ -179,6 +179,19 @@
 				},
 				{
 					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json()\r",
+									"pm.environment.set('user_token', response.data.token)\r",
+									"pm.environment.set('refresh_token', response.data.refresh_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -188,24 +201,24 @@
 								{
 									"key": "email",
 									"value": "test1@test.com",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "password",
 									"value": "1234",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "email",
 									"value": "general1@general.com",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "password",
 									"value": "P@ssw0rd",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
@@ -815,6 +828,72 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "job-applied",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job/applied-by/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job",
+								"applied-by",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "job-applied-delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/job/applied-by/user/delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"job",
+								"applied-by",
+								"user",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -993,6 +1072,72 @@
 								{
 									"key": "slug",
 									"value": "amet-dolores-possim"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event-applied",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/event/applied-by/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event",
+								"applied-by",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event-applied-delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/event/applied-by/user/delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event",
+								"applied-by",
+								"user",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
 								}
 							]
 						}
