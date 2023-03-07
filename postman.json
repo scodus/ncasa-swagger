@@ -1485,7 +1485,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/blog?limit=8",
+							"raw": "{{url}}/blog?limit=8&page=1",
 							"host": [
 								"{{url}}"
 							],
@@ -1496,6 +1496,10 @@
 								{
 									"key": "limit",
 									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
 								}
 							]
 						}
@@ -1575,7 +1579,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/news?limit=8",
+							"raw": "{{url}}/news?limit=8&page=1",
 							"host": [
 								"{{url}}"
 							],
@@ -1586,6 +1590,10 @@
 								{
 									"key": "limit",
 									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
 								}
 							]
 						}
@@ -1670,7 +1678,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/magazine?limit=8",
+							"raw": "{{url}}/magazine?limit=8&page=1",
 							"host": [
 								"{{url}}"
 							],
@@ -1681,6 +1689,10 @@
 								{
 									"key": "limit",
 									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
 								}
 							]
 						}
