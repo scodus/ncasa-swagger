@@ -42,6 +42,8 @@ tags:
   - name: complain-section
   - name: volunteer
   - name: quick link
+  - name: our team
+  - name: our team category
 paths:
   /user/general/register:
     post:
@@ -66,45 +68,6 @@ paths:
                 name:
                   type: string
                   example: general1
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /user/general/account-verification:
-    post:
-      tags:
-        - user > general-user
-      summary: accountVerification
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                user_id:
-                  type: integer
-                  example: '43'
-                token:
-                  type: string
-                  example: cLlAQOof3z6ZN1zRlT9QCG3T7UXJzJW39fZKzCpOWqH2kuYU8R
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /resend-account-verification-mail:
-    post:
-      tags:
-        - user > general-user
-      summary: resend email verification mail
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-      security:
-        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -249,6 +212,45 @@ paths:
                   type: string
                   example: >-
                     kjF4GBMpxhu7UNmE0N2X7BvBjQW7K3tgsBxkJXobawYrV3azSVGBPWn6QapnieiH
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /account-verification:
+    post:
+      tags:
+        - user
+      summary: accountVerification
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  example: '43'
+                token:
+                  type: string
+                  example: cLlAQOof3z6ZN1zRlT9QCG3T7UXJzJW39fZKzCpOWqH2kuYU8R
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /resend-account-verification-mail:
+    post:
+      tags:
+        - user
+      summary: resend email verification mail
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -1223,6 +1225,70 @@ paths:
       tags:
         - quick link
       summary: quick-link
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /our-team:
+    get:
+      tags:
+        - our team
+      summary: our-team
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /our-team/{slug}:
+    get:
+      tags:
+        - our team
+      summary: our-team-single-by-slug
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: keane-palmer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /our-team/by/22:
+    get:
+      tags:
+        - our team
+      summary: our-team-single-by-id
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /our-team-category:
+    get:
+      tags:
+        - our team category
+      summary: our-team-category
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /our-team-category/{slug}:
+    get:
+      tags:
+        - our team category
+      summary: our-team-category-single-by-slug
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: central-committee
       responses:
         '200':
           description: Successful response

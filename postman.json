@@ -55,71 +55,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "accountVerification",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "user_id",
-											"value": "43",
-											"type": "text"
-										},
-										{
-											"key": "token",
-											"value": "cLlAQOof3z6ZN1zRlT9QCG3T7UXJzJW39fZKzCpOWqH2kuYU8R",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/user/general/account-verification",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"user",
-										"general",
-										"account-verification"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "resend email verification mail",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{user_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/resend-account-verification-mail",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"resend-account-verification-mail"
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				},
@@ -393,6 +328,69 @@
 							],
 							"path": [
 								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accountVerification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "43",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "cLlAQOof3z6ZN1zRlT9QCG3T7UXJzJW39fZKzCpOWqH2kuYU8R",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/account-verification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resend email verification mail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/resend-account-verification-mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resend-account-verification-mail"
 							]
 						}
 					},
@@ -2041,6 +2039,152 @@
 							],
 							"path": [
 								"quick-link"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "our team",
+			"item": [
+				{
+					"name": "our-team",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/our-team",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"our-team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "our-team-single-by-slug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/our-team/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"our-team",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "keane-palmer"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "our-team-single-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/our-team/by/22",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"our-team",
+								"by",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "our team category",
+			"item": [
+				{
+					"name": "our-team-category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/our-team-category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"our-team-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "our-team-category-single-by-slug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/our-team-category/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"our-team-category",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "central-committee"
+								}
 							]
 						}
 					},
