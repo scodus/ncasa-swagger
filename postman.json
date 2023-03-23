@@ -21,24 +21,6 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "member_name",
-											"value": "tomnjerry",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "phone",
-											"value": "987654321",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "member_email",
-											"value": "tomnjerry@gmail.com",
-											"type": "text",
-											"disabled": true
-										},
-										{
 											"key": "password",
 											"value": "P@ssw0rd",
 											"type": "text"
@@ -47,42 +29,6 @@
 											"key": "password_confirmation",
 											"value": "P@ssw0rd",
 											"type": "text"
-										},
-										{
-											"key": "designation",
-											"value": "",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "image",
-											"type": "file",
-											"src": [],
-											"disabled": true
-										},
-										{
-											"key": "description",
-											"value": "",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "facebook",
-											"value": "qwertyu",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "instagram",
-											"value": "sdfghjk",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "twitter",
-											"value": "jerhwiurhiew",
-											"type": "text",
-											"disabled": true
 										},
 										{
 											"key": "email",
@@ -200,7 +146,17 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "test1@test.com",
+									"value": "member1@member.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "general1@general.com",
 									"type": "text",
 									"disabled": true
 								},
@@ -209,16 +165,6 @@
 									"value": "1234",
 									"type": "text",
 									"disabled": true
-								},
-								{
-									"key": "email",
-									"value": "general1@general.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "P@ssw0rd",
-									"type": "text"
 								}
 							]
 						},
@@ -1151,6 +1097,9 @@
 			"item": [
 				{
 					"name": "course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1164,6 +1113,10 @@
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
 							"raw": "{{url}}/course",
 							"host": [
@@ -2007,6 +1960,87 @@
 							],
 							"path": [
 								"complain"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "volunteer",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@email.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "91287346",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "kljfsadlk fsadl falsd fh",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "CAP1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/volunteer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"volunteer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "quick link",
+			"item": [
+				{
+					"name": "quick-link",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/quick-link",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"quick-link"
 							]
 						}
 					},

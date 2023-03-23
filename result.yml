@@ -40,6 +40,8 @@ tags:
   - name: newsletter
   - name: contact-us
   - name: complain-section
+  - name: volunteer
+  - name: quick link
 paths:
   /user/general/register:
     post:
@@ -52,37 +54,12 @@ paths:
             schema:
               type: object
               properties:
-                member_name:
-                  type: string
-                  example: tomnjerry
-                phone:
-                  type: integer
-                  example: '987654321'
-                member_email:
-                  type: string
-                  example: tomnjerry@gmail.com
                 password:
                   type: string
                   example: P@ssw0rd
                 password_confirmation:
                   type: string
                   example: P@ssw0rd
-                designation:
-                  type: string
-                image:
-                  type: string
-                  format: binary
-                description:
-                  type: string
-                facebook:
-                  type: string
-                  example: qwertyu
-                instagram:
-                  type: string
-                  example: sdfghjk
-                twitter:
-                  type: string
-                  example: jerhwiurhiew
                 email:
                   type: string
                   example: general1@general.com
@@ -148,8 +125,8 @@ paths:
                   type: string
                   example: general1@general.com
                 password:
-                  type: string
-                  example: P@ssw0rd
+                  type: integer
+                  example: '1234'
       responses:
         '200':
           description: Successful response
@@ -1205,6 +1182,47 @@ paths:
                   example: ICAN
                 status:
                   type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /volunteer:
+    post:
+      tags:
+        - volunteer
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: name
+                email:
+                  type: string
+                  example: email@email.com
+                phone:
+                  type: integer
+                  example: '91287346'
+                address:
+                  type: string
+                  example: kljfsadlk fsadl falsd fh
+                level:
+                  type: string
+                  example: CAP1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /quick-link:
+    get:
+      tags:
+        - quick link
+      summary: quick-link
       responses:
         '200':
           description: Successful response
