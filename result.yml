@@ -23,6 +23,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: user
   - name: user > general-user
@@ -41,6 +44,10 @@ tags:
   - name: contact-us
   - name: complain-section
   - name: volunteer
+  - name: thread
+  - name: comment
+  - name: upvote
+  - name: downvote
   - name: quick link
   - name: our team
   - name: our team category
@@ -1215,6 +1222,320 @@ paths:
                 level:
                   type: string
                   example: CAP1
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user-thread:
+    get:
+      tags:
+        - thread
+      summary: list all
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: page number | nullable
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit quicklinks per page | nullable (default is 10 if null)
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - thread
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title1
+                description:
+                  type: string
+                  example: description 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /thread:
+    get:
+      tags:
+        - thread
+      summary: list all public
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: page number | nullable
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit quicklinks per page | nullable (default is 10 if null)
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user-thread/{thread_slug}:
+    get:
+      tags:
+        - thread
+      summary: show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: thread_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: title1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - thread
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title edit2
+                description:
+                  type: string
+                  example: description edit
+                _method:
+                  type: string
+                  example: patch
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: thread_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: title1-2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - thread
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: thread_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: title1-2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /thread/{thread_slug}:
+    get:
+      tags:
+        - thread
+      summary: show public
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: thread_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: title1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /comment:
+    post:
+      tags:
+        - comment
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                thread_id:
+                  type: integer
+                  example: '1'
+                description:
+                  type: string
+                  example: description 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /comment/{comment_id}:
+    post:
+      tags:
+        - comment
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: description edit
+                _method:
+                  type: string
+                  example: patch
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: comment_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - comment
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: comment_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /upvote:
+    post:
+      tags:
+        - upvote
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                comment_id:
+                  type: integer
+                  example: '9'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /upvote/{comment_id}:
+    delete:
+      tags:
+        - upvote
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: comment_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /downvote:
+    post:
+      tags:
+        - downvote
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                comment_id:
+                  type: integer
+                  example: '9'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /downvote/{comment_id}:
+    delete:
+      tags:
+        - downvote
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: comment_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
       responses:
         '200':
           description: Successful response
@@ -1225,6 +1546,18 @@ paths:
       tags:
         - quick link
       summary: quick-link
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: page number | nullable
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit quicklinks per page | nullable (default is 10 if null)
+          example: '10'
       responses:
         '200':
           description: Successful response
