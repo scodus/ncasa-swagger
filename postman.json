@@ -868,7 +868,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/event?limit=1&page=1",
+							"raw": "{{url}}/event?limit=8&page=1",
 							"host": [
 								"{{url}}"
 							],
@@ -878,7 +878,7 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "1"
+									"value": "8"
 								},
 								{
 									"key": "page",
@@ -2735,6 +2735,37 @@
 					"response": []
 				},
 				{
+					"name": "our-team-by-category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/our-team/index?slug=other",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"our-team",
+								"index"
+							],
+							"query": [
+								{
+									"key": "slug",
+									"value": "other"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "our-team-single-by-slug",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -2844,7 +2875,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": "central-committee"
+									"value": "mollit-voluptas-aute"
 								}
 							]
 						}
