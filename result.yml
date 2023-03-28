@@ -551,7 +551,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '8'
         - name: page
           in: query
           schema:
@@ -1584,6 +1584,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /our-team/index:
+    get:
+      tags:
+        - our team
+      summary: our-team-by-category
+      parameters:
+        - name: slug
+          in: query
+          schema:
+            type: string
+          example: other
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /our-team/{slug}:
     get:
       tags:
@@ -1632,7 +1648,7 @@ paths:
           schema:
             type: string
           required: true
-          example: central-committee
+          example: mollit-voluptas-aute
       responses:
         '200':
           description: Successful response
