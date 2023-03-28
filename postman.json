@@ -2017,6 +2017,59 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@email.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "91287346",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "kljfsadlk fsadl falsd fh",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "CAP1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/volunteer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"volunteer"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
