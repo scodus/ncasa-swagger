@@ -81,7 +81,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "member1@member.com",
+									"value": "company1@company.com",
 									"type": "text"
 								},
 								{
@@ -92,6 +92,18 @@
 								{
 									"key": "email",
 									"value": "general1@general.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "member1@member.com",
 									"type": "text",
 									"disabled": true
 								},
@@ -114,7 +126,7 @@
 							"query": [
 								{
 									"key": "email",
-									"value": "test1@test.com",
+									"value": "admin@admin.com",
 									"disabled": true
 								},
 								{
@@ -210,6 +222,34 @@
 							],
 							"path": [
 								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user company list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"company"
 							]
 						}
 					},
@@ -615,6 +655,251 @@
 			"name": "job",
 			"item": [
 				{
+					"name": "job crud by company users",
+					"item": [
+						{
+							"name": "job-create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "ABC",
+											"type": "text"
+										},
+										{
+											"key": "position",
+											"value": "HR",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/Compressed/test/1.jpg"
+										},
+										{
+											"key": "description",
+											"value": "abc@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "job_type",
+											"value": "Articleship",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Ktm",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "job-update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "ABC",
+											"type": "text"
+										},
+										{
+											"key": "position",
+											"value": "HResource",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/Compressed/test/1.jpg"
+										},
+										{
+											"key": "description",
+											"value": "abc@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "job_type",
+											"value": "Articleship",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Ktm",
+											"type": "text"
+										},
+										{
+											"key": "delete_file",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/job/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"job",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "abc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "job-delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/job/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"job",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "quas-anim-molestiae"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "job by company paginated",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/job-by-company?limit=8&page=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"job-by-company"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "8"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "job applications of job by company",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/job-by-company/job-applications",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"job-by-company",
+										"job-applications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "job",
 					"request": {
 						"method": "GET",
@@ -676,7 +961,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": "quas-anim-molestiae"
+									"value": "abc"
 								}
 							]
 						}
@@ -766,7 +1051,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": "quas-anim-molestiae"
+									"value": "abc"
 								}
 							]
 						}
@@ -1482,6 +1767,59 @@
 					"response": []
 				},
 				{
+					"name": "blog store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "title1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/user--49/Pictures/alberta-2297204_960_720.jpg"
+								},
+								{
+									"key": "status",
+									"value": "Active",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/blog/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"blog",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "blog-single-by",
 					"request": {
 						"method": "GET",
@@ -1710,12 +2048,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/album",
+							"raw": "{{url}}/album/all",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"album"
+								"album",
+								"all"
 							]
 						}
 					},
@@ -1801,7 +2140,60 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/album/:id/gallery",
+							"raw": "{{url}}/album/:id/gallery/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album",
+								":id",
+								"gallery",
+								"all"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "album paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album?limit=8&page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "albumGallery paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album/:id/gallery?limit=8&page=1",
 							"host": [
 								"{{url}}"
 							],
@@ -1809,6 +2201,16 @@
 								"album",
 								":id",
 								"gallery"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
 							],
 							"variable": [
 								{
