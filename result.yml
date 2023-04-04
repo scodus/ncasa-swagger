@@ -421,22 +421,22 @@ paths:
               properties:
                 title:
                   type: string
-                  example: ABC
+                  example: avasdf
                 position:
-                  type: string
-                  example: HR
+                  type: integer
+                  example: '111'
                 image:
                   type: string
                   format: binary
                 description:
                   type: string
-                  example: abc@gmail.com
+                  example: 111@gmail.com
                 job_type:
                   type: string
-                  example: Articleship
+                  example: Pre-articleship
                 location:
                   type: string
-                  example: Ktm
+                  example: Ktm1
       security:
         - bearerAuth: []
       responses:
@@ -1030,17 +1030,17 @@ paths:
           schema:
             type: string
           required: true
-          example: et-cupidatat-id-solu
+          example: test
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /blog/:
+  /user-blog:
     post:
       tags:
         - blog and news
-      summary: blog store
+      summary: user blog store
       requestBody:
         content:
           multipart/form-data:
@@ -1058,9 +1058,111 @@ paths:
                   format: binary
                 status:
                   type: string
+                  description: nullable
                   example: Active
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - blog and news
+      summary: user blog list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: lmit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user-blog/{blog_id}:
+    get:
+      tags:
+        - blog and news
+      summary: user blog single
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '11'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - blog and news
+      summary: user blog update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title1 edit
+                description:
+                  type: string
+                  example: edit
+                image:
+                  type: string
+                  format: binary
+                status:
+                  type: string
+                  example: Active
+                _method:
+                  type: string
+                  example: patch
+                delete_file:
+                  type: string
+                  description: nullable
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '11'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - blog and news
+      summary: user blog delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '11'
       responses:
         '200':
           description: Successful response
@@ -1077,7 +1179,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response

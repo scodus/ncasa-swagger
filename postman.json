@@ -677,32 +677,32 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "ABC",
+											"value": "avasdf",
 											"type": "text"
 										},
 										{
 											"key": "position",
-											"value": "HR",
+											"value": "111",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/Compressed/test/1.jpg"
+											"src": "/C:/Users/August/Downloads/aboutUsBanner-min.png"
 										},
 										{
 											"key": "description",
-											"value": "abc@gmail.com",
+											"value": "111@gmail.com",
 											"type": "text"
 										},
 										{
 											"key": "job_type",
-											"value": "Articleship",
+											"value": "Pre-articleship",
 											"type": "text"
 										},
 										{
 											"key": "location",
-											"value": "Ktm",
+											"value": "Ktm1",
 											"type": "text"
 										}
 									]
@@ -1759,7 +1759,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": "et-cupidatat-id-solu"
+									"value": "test"
 								}
 							]
 						}
@@ -1767,7 +1767,7 @@
 					"response": []
 				},
 				{
-					"name": "blog store",
+					"name": "user blog store",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1797,23 +1797,228 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/user--49/Pictures/alberta-2297204_960_720.jpg"
+									"src": "/home/user--49/Pictures/Screenshot from 2023-03-20 17-46-43.png"
 								},
 								{
 									"key": "status",
 									"value": "Active",
+									"description": "nullable",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/blog/",
+							"raw": "{{url}}/user-blog",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"blog",
-								""
+								"user-blog"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "lmit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user blog list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/user-blog?paginate=1&lmit=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user-blog"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "1"
+								},
+								{
+									"key": "lmit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user blog single",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/user-blog/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user-blog",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user blog update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "title1 edit",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "edit",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/user--49/Pictures/Screenshot from 2023-03-30 14-44-44.png"
+								},
+								{
+									"key": "status",
+									"value": "Active",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text"
+								},
+								{
+									"key": "delete_file",
+									"value": "",
+									"description": "nullable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user-blog/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user-blog",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user blog delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/user-blog/:blog_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user-blog",
+								":blog_id"
+							],
+							"variable": [
+								{
+									"key": "blog_id",
+									"value": "11"
+								}
 							]
 						}
 					},
@@ -1837,7 +2042,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
