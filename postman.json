@@ -82,7 +82,8 @@
 								{
 									"key": "email",
 									"value": "company1@company.com",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "password",
@@ -91,7 +92,7 @@
 								},
 								{
 									"key": "email",
-									"value": "general1@general.com",
+									"value": "general2@general.com",
 									"type": "text",
 									"disabled": true
 								},
@@ -104,8 +105,7 @@
 								{
 									"key": "email",
 									"value": "member1@member.com",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "password",
@@ -885,13 +885,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/job-by-company/job-applications",
+									"raw": "{{url}}/job-by-company/:slug/job-applications",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"job-by-company",
+										":slug",
 										"job-applications"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "ex-molestias-volupta-3"
+										}
 									]
 								}
 							},
@@ -1013,7 +1020,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "ABC",
+									"value": "g1 app",
 									"type": "text"
 								},
 								{
@@ -1051,7 +1058,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": "abc"
+									"value": "ex-molestias-volupta-3"
 								}
 							]
 						}
@@ -1797,7 +1804,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/home/user--49/Pictures/Screenshot from 2023-03-20 17-46-43.png"
+									"src": "/home/user--49/Pictures/Screenshot from 2023-03-22 22-58-29.png"
 								},
 								{
 									"key": "status",
@@ -1909,7 +1916,7 @@
 							"variable": [
 								{
 									"key": "blog_id",
-									"value": "11"
+									"value": "37"
 								}
 							]
 						}
@@ -1979,7 +1986,7 @@
 							"variable": [
 								{
 									"key": "blog_id",
-									"value": "11"
+									"value": "37"
 								}
 							]
 						}
@@ -2266,6 +2273,32 @@
 					"response": []
 				},
 				{
+					"name": "albumGallery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/album/:id/gallery/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"album",
+								":id",
+								"gallery",
+								"all"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "album-single-by",
 					"request": {
 						"method": "GET",
@@ -2328,32 +2361,6 @@
 								"album",
 								":id",
 								"with-gallery"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "albumGallery",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/album/:id/gallery/all",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"album",
-								":id",
-								"gallery",
-								"all"
 							],
 							"variable": [
 								{
@@ -2706,7 +2713,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/user-thread?page=&limit=10",
+							"raw": "{{url}}/user-thread?page=&limit=10&paginate=",
 							"host": [
 								"{{url}}"
 							],
@@ -2723,6 +2730,11 @@
 									"key": "limit",
 									"value": "10",
 									"description": "limit quicklinks per page | nullable (default is 10 if null)"
+								},
+								{
+									"key": "paginate",
+									"value": "",
+									"description": "1 o null"
 								}
 							]
 						}
@@ -2745,7 +2757,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/thread?page=&limit=10",
+							"raw": "{{url}}/thread?page=&limit=10&paginate=",
 							"host": [
 								"{{url}}"
 							],
@@ -2762,6 +2774,11 @@
 									"key": "limit",
 									"value": "10",
 									"description": "limit quicklinks per page | nullable (default is 10 if null)"
+								},
+								{
+									"key": "paginate",
+									"value": "",
+									"description": "1 or null"
 								}
 							]
 						}
