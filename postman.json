@@ -2691,7 +2691,7 @@
 			"name": "thread",
 			"item": [
 				{
-					"name": "list all",
+					"name": "user thread list all",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2742,13 +2742,20 @@
 					"response": []
 				},
 				{
-					"name": "list all public",
+					"name": "all user thread list all",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [],

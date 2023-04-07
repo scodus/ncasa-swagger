@@ -1579,7 +1579,7 @@ paths:
     get:
       tags:
         - thread
-      summary: list all
+      summary: user thread list all
       security:
         - bearerAuth: []
       parameters:
@@ -1631,9 +1631,9 @@ paths:
     get:
       tags:
         - thread
-      summary: list all public
+      summary: all user thread list all
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: page
           in: query
