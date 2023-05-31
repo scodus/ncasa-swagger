@@ -125,7 +125,7 @@ paths:
       requestBody:
         content: {}
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: refresh_token
           in: path
@@ -385,7 +385,7 @@ paths:
           schema:
             type: string
           required: true
-          example: dolor-amet-beatae-s
+          example: introduction
       responses:
         '200':
           description: Successful response
@@ -727,12 +727,12 @@ paths:
           in: query
           schema:
             type: string
-          example: '2023-02-01'
+          example: '2023-04-01'
         - name: end_date
           in: query
           schema:
             type: string
-          example: '2023-02-28'
+          example: '2023-04-30'
       responses:
         '200':
           description: Successful response
@@ -844,6 +844,12 @@ paths:
       summary: course
       security:
         - bearerAuth: []
+      parameters:
+        - name: cap_level
+          in: query
+          schema:
+            type: string
+          example: cap_i
       responses:
         '200':
           description: Successful response
@@ -975,6 +981,55 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /course-video:
+    get:
+      tags:
+        - learning-center
+      summary: course-video
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: paginate
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: title
+          in: query
+          schema:
+            type: string
+        - name: course_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /course-video/{slug}:
+    get:
+      tags:
+        - learning-center
+      summary: course-video-single
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: debitis-nostrud-aut
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /site-setting:
     get:
       tags:
@@ -1037,7 +1092,7 @@ paths:
           schema:
             type: string
           required: true
-          example: test
+          example: best-practices-for-internal-control-systems-in-nepali-businesses
       responses:
         '200':
           description: Successful response
@@ -1109,7 +1164,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '37'
+          example: '19'
       responses:
         '200':
           description: Successful response
@@ -1149,9 +1204,9 @@ paths:
         - name: blog_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '37'
+          example: blog10
       responses:
         '200':
           description: Successful response
@@ -1442,7 +1497,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '8'
       responses:
         '200':
           description: Successful response
@@ -1526,6 +1581,15 @@ paths:
                   example: ICAN
                 status:
                   type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - complain-section
+      summary: complain index
       responses:
         '200':
           description: Successful response
@@ -1644,7 +1708,7 @@ paths:
           in: query
           schema:
             type: integer
-          description: limit quicklinks per page | nullable (default is 10 if null)
+          description: limit thread per page | nullable (default is 10 if null)
           example: '10'
         - name: paginate
           in: query
@@ -1669,7 +1733,7 @@ paths:
           schema:
             type: string
           required: true
-          example: title1
+          example: title1-5
       responses:
         '200':
           description: Successful response
@@ -1726,25 +1790,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /thread/{thread_slug}:
-    get:
-      tags:
-        - thread
-      summary: show public
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: thread_slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: title1
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /comment:
     post:
       tags:
@@ -1758,7 +1803,7 @@ paths:
               properties:
                 thread_id:
                   type: integer
-                  example: '1'
+                  example: '72'
                 description:
                   type: string
                   example: description 1
